@@ -12,7 +12,7 @@ public class DataReader : MonoBehaviour
 {
     private static readonly fsSerializer Serializer = new fsSerializer();
     private static readonly string StoryPath = Application.streamingAssetsPath;
-    [SerializeField] public TextMeshPro Title;
+    //[SerializeField] public TextMeshPro Title;
     [SerializeField] public GameObject ButtonPrefab;
     [SerializeField] public Transform panel;
 
@@ -23,10 +23,11 @@ public class DataReader : MonoBehaviour
         foreach (string variableFile in StoryFiles)
         {
             GameObject tempButton = Instantiate(ButtonPrefab, panel);
-            TextMeshPro text = tempButton.GetComponentInChildren<TextMeshPro>();
-            text.text = variableFile;
+            TextMeshProUGUI textMeshPro = tempButton.GetComponentInChildren<TextMeshProUGUI>();
+            textMeshPro.text = variableFile;
         }
     }
+    
     public Story Load(string FileTarget)
     {
         string path = StoryPath + Path.DirectorySeparatorChar + FileTarget;
