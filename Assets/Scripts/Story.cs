@@ -5,7 +5,7 @@ using System.Collections.Generic;
 [Serializable]
 public class Story : MonoBehaviour
 { 
-        public static string StoryName;
+        public string StoryName;
         public List<Thumbnail> Thumbnails;
 
         public Story(string storyName) {
