@@ -9,22 +9,18 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Object = System.Object;
 
-public class DataReader : MonoBehaviour
-{
+public class DataReader : MonoBehaviour {
     private static readonly fsSerializer Serializer = new fsSerializer();
-
     private static readonly string StoryPath = Application.streamingAssetsPath;
-
+    
     //[SerializeField] public TextMeshPro Title;
     [SerializeField] public GameObject ButtonPrefab;
     [SerializeField] public Transform panel;
 
     public static List<string> StoryFiles => Directory.GetFiles(StoryPath, "*.sty").Select(Path.GetFileName).ToList();
 
-    public void DisplayAllFoundedFiles()
-    {
-        foreach (string variableFile in StoryFiles)
-        {
+    public void DisplayAllFoundedFiles() {
+        foreach (string variableFile in StoryFiles) {
             Button tempButton = Instantiate(ButtonPrefab, panel).GetComponent<Button>();
             TextMeshProUGUI textMeshPro = tempButton.GetComponentInChildren<TextMeshProUGUI>();
             textMeshPro.text = variableFile;
@@ -33,20 +29,12 @@ public class DataReader : MonoBehaviour
                 PlayerPrefs.SetString(StoryUI.Properties.Prefs.LoadedStory, textMeshPro.text);
                 Scene scene = SceneManager.GetActiveScene();
                 SceneManager.LoadScene(scene.name);
-                
             });
         }
-
-       
-
-       
-
     }
-    public static Story LoadStory(string FileTarget)
-    {
+    public static Story LoadStory(string FileTarget) {
         string path = StoryPath + Path.DirectorySeparatorChar + FileTarget;
-        foreach (string _path in StoryFiles)
-        {
+        foreach (string _path in StoryFiles) {
             if (File.Exists(path)) File.OpenRead(path);
             else Debug.LogError("File not found");
         }
@@ -55,10 +43,8 @@ public class DataReader : MonoBehaviour
         Debug.Log(fileJson);
         return Deserialize(typeof(Story), fileJson) as Story;
     }
-    public static object Deserialize(Type type, string jsonTarget)
-    {
+    public static object Deserialize(Type type, string jsonTarget) {
         fsData data = fsJsonParser.Parse(jsonTarget);
-
         object deserialized = null;
         Serializer.TryDeserialize(data, type, ref deserialized).AssertSuccessWithoutWarnings();
         return deserialized;

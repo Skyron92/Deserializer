@@ -10,8 +10,8 @@ public class ThumbnailUI : MonoBehaviour
     public static Story CurrentStory;
     [SerializeField] private ThumbnailUI _thumbnailUI;
     [SerializeField] private GameObject _newStoryCanvas;
-    [SerializeField] private TMP_InputField TitleInputField;
-    [SerializeField] private TMP_InputField DescriptionInputField;
+    [SerializeField] private TextMeshProUGUI TitleInputField;
+    [SerializeField] private TextMeshProUGUI DescriptionInputField;
     [SerializeField] private TMP_Dropdown ThumbnailSelectorDropdown;
     [SerializeField] private Transform ChoiceContent;
     [SerializeField] private GameObject ChoicePrefab;
