@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 public class ChoiceUI : MonoBehaviour {
 
-    private TextMeshProUGUI _descriptionInputField;
+    [SerializeField] private TextMeshProUGUI _descriptionInputField;
 
     /// <summary>
     /// Load an existing choice

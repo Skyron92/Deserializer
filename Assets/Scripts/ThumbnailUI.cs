@@ -29,7 +29,7 @@ public class ThumbnailUI : MonoBehaviour
             choiceUI.Load(choice);
         }
     }
-    void Start()
+    public void MaMethodeDeMerde()
     {
         if (PlayerPrefs.HasKey(StoryUI.Properties.Prefs.LoadedStory) &&
             Check(PlayerPrefs.GetString(StoryUI.Properties.Prefs.LoadedStory))) {

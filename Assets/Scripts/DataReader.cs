@@ -24,8 +24,7 @@ public class DataReader : MonoBehaviour {
             Button tempButton = Instantiate(ButtonPrefab, panel).GetComponent<Button>();
             TextMeshProUGUI textMeshPro = tempButton.GetComponentInChildren<TextMeshProUGUI>();
             textMeshPro.text = variableFile;
-            tempButton.onClick.AddListener(delegate
-            {
+            tempButton.onClick.AddListener(delegate {
                 PlayerPrefs.SetString(StoryUI.Properties.Prefs.LoadedStory, textMeshPro.text);
                 Scene scene = SceneManager.GetActiveScene();
                 SceneManager.LoadScene(scene.name);
