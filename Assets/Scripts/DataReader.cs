@@ -18,7 +18,7 @@ public class DataReader : MonoBehaviour {
     [SerializeField] public Transform panel;
 
     public static List<string> StoryFiles => Directory.GetFiles(StoryPath, "*.sty").Select(Path.GetFileName).ToList();
-
+    
     public void DisplayAllFoundedFiles() {
         foreach (string variableFile in StoryFiles) {
             Button tempButton = Instantiate(ButtonPrefab, panel).GetComponent<Button>();
@@ -29,8 +29,10 @@ public class DataReader : MonoBehaviour {
                 Scene scene = SceneManager.GetActiveScene();
                 SceneManager.LoadScene(scene.name);
             });
+            
         }
     }
+    
     public static Story LoadStory(string FileTarget) {
         string path = StoryPath + Path.DirectorySeparatorChar + FileTarget;
         foreach (string _path in StoryFiles) {

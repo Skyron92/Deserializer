@@ -16,8 +16,7 @@ public class ThumbnailUI : MonoBehaviour
     [SerializeField] private GameObject ChoicePrefab;
     private string _guid = Guid.NewGuid().ToString();
     private List<ChoiceUI> ChoiceUIs => ChoiceContent.GetComponentsInChildren<ChoiceUI>().ToList();
-    public void Load(int index)
-    {
+    public void Load(int index) {
         StoryName.text = CurrentStory.StoryName;
         Thumbnail thumbnail = CurrentStory.Thumbnails[index];
         _guid = thumbnail.Guid;
@@ -29,12 +28,13 @@ public class ThumbnailUI : MonoBehaviour
             choiceUI.Load(choice);
         }
     }
-    public void MaMethodeDeMerde()
-    {
+    
+    public void MaMethodeDeMerde() {
         if (PlayerPrefs.HasKey(StoryUI.Properties.Prefs.LoadedStory) &&
             Check(PlayerPrefs.GetString(StoryUI.Properties.Prefs.LoadedStory))) {
             Load(PlayerPrefs.GetString(StoryUI.Properties.Prefs.LoadedStory));
             PlayerPrefs.DeleteKey(StoryUI.Properties.Prefs.LoadedStory);
+            //Nique toi *2
         }
     }
 
@@ -42,10 +42,8 @@ public class ThumbnailUI : MonoBehaviour
             CurrentStory = DataReader.LoadStory(storyName);
             _thumbnailUI.Load(0);
     }
-    
-    
-    
-    private bool Check(string storyName) {
+
+    private static bool Check(string storyName) {
         return DataReader.CheckStory(storyName);
     }
 }

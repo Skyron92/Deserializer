@@ -12,5 +12,4 @@ public class Story : MonoBehaviour
             StoryName = storyName;
             Thumbnails = new List<Thumbnail>();
         }
-    
-    } 
+} 

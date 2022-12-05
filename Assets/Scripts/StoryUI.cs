@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,5 +23,6 @@ public class StoryUI : MonoBehaviour
         {
             public const string StoryExt = ".sty";
         }
+        
     }
 }
