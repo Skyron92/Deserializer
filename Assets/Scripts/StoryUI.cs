@@ -5,12 +5,8 @@ using UnityEngine.UI;
 
 public class StoryUI : MonoBehaviour
 {
-    private GameObject parent;
-    
     public void Do() {
         ThumbnailUI.MaMethodeDeMerde();
-        parent = GetComponentInParent<GameObject>();
-        parent.SetActive(false);
     }
     public static class Properties{
     

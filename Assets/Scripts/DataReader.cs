@@ -14,7 +14,7 @@ public class DataReader : MonoBehaviour {
     private static readonly string StoryPath = Application.streamingAssetsPath;
     
     //[SerializeField] public TextMeshPro Title;
-    [SerializeField] public GameObject ButtonPrefab;
+    [SerializeField] public GameObject ButtonPrefab, LoadPanel;
     [SerializeField] public Transform panel;
 
     public static List<string> StoryFiles => Directory.GetFiles(StoryPath, "*.sty").Select(Path.GetFileName).ToList();
@@ -26,6 +26,7 @@ public class DataReader : MonoBehaviour {
             textMeshPro.text = variableFile;
             tempButton.onClick.AddListener(delegate {
                 PlayerPrefs.SetString(StoryUI.Properties.Prefs.LoadedStory, textMeshPro.text);
+                LoadPanel.SetActive(false);
             });
         }
     }

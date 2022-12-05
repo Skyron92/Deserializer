@@ -1675,6 +1675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonPrefab: {fileID: 8622860643070940797, guid: 98b62e5baed4dcf419181339a5f27994, type: 3}
+  LoadPanel: {fileID: 530986461}
   panel: {fileID: 1285109837}
 --- !u!1 &1709488928
 GameObject:
