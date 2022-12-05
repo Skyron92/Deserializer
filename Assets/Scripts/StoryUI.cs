@@ -9,8 +9,6 @@ public class StoryUI : MonoBehaviour
         ThumbnailUI.MaMethodeDeMerde();
     }
     public static class Properties{
-    
-
         public struct Prefs {
             public const string LoadedStory = "LoadedStory";
         }
