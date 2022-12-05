@@ -27,7 +27,6 @@ public class DataReader : MonoBehaviour {
             tempButton.onClick.AddListener(delegate {
                 PlayerPrefs.SetString(StoryUI.Properties.Prefs.LoadedStory, textMeshPro.text);
             });
-
         }
     }
     
