@@ -429,7 +429,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StoryName: {fileID: 258971417}
-  _thumbnailUI: {fileID: 350168590}
   TitleInputField: {fileID: 1275482434}
   DescriptionInputField: {fileID: 1138232875}
   ChoiceContent: {fileID: 2079493859}
@@ -1775,7 +1774,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1521588431}
         m_TargetAssemblyTypeName: DataReader, Assembly-CSharp
-        m_MethodName: DisplayAllFoundedFiles
+        m_MethodName: DisplayAllFoundFiles
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -9,13 +9,19 @@ public class ThumbnailUI : MonoBehaviour
 {
     public static Story CurrentStory;
     [SerializeField] private TextMeshProUGUI StoryName;
-    [SerializeField] private ThumbnailUI _thumbnailUI;
+    [SerializeField] private static ThumbnailUI _thumbnailUI;
     [SerializeField] private TextMeshProUGUI TitleInputField;
     [SerializeField] private TextMeshProUGUI DescriptionInputField;
     [SerializeField] private Transform ChoiceContent;
     [SerializeField] private GameObject ChoicePrefab;
     private string _guid = Guid.NewGuid().ToString();
     private List<ChoiceUI> ChoiceUIs => ChoiceContent.GetComponentsInChildren<ChoiceUI>().ToList();
+
+    private void Awake()
+    {
+        _thumbnailUI = this;
+    }
+    
     public void Load(int index) {
         StoryName.text = CurrentStory.StoryName;
         Thumbnail thumbnail = CurrentStory.Thumbnails[index];
@@ -29,16 +35,15 @@ public class ThumbnailUI : MonoBehaviour
         }
     }
     
-    public void MaMethodeDeMerde() {
+    public static void MaMethodeDeMerde() {
         if (PlayerPrefs.HasKey(StoryUI.Properties.Prefs.LoadedStory) &&
             Check(PlayerPrefs.GetString(StoryUI.Properties.Prefs.LoadedStory))) {
             Load(PlayerPrefs.GetString(StoryUI.Properties.Prefs.LoadedStory));
             PlayerPrefs.DeleteKey(StoryUI.Properties.Prefs.LoadedStory);
-            //Nique toi *2
         }
     }
 
-    private void Load(string storyName) {
+    private static void Load(string storyName) {
             CurrentStory = DataReader.LoadStory(storyName);
             _thumbnailUI.Load(0);
     }

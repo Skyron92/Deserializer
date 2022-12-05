@@ -19,17 +19,15 @@ public class DataReader : MonoBehaviour {
 
     public static List<string> StoryFiles => Directory.GetFiles(StoryPath, "*.sty").Select(Path.GetFileName).ToList();
     
-    public void DisplayAllFoundedFiles() {
+    public void DisplayAllFoundFiles() {
         foreach (string variableFile in StoryFiles) {
             Button tempButton = Instantiate(ButtonPrefab, panel).GetComponent<Button>();
             TextMeshProUGUI textMeshPro = tempButton.GetComponentInChildren<TextMeshProUGUI>();
             textMeshPro.text = variableFile;
             tempButton.onClick.AddListener(delegate {
                 PlayerPrefs.SetString(StoryUI.Properties.Prefs.LoadedStory, textMeshPro.text);
-                Scene scene = SceneManager.GetActiveScene();
-                SceneManager.LoadScene(scene.name);
             });
-            
+
         }
     }
     
