@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class StoryUI : MonoBehaviour
 {
     public void Do() {
-        ThumbnailUI.MaMethodeDeMerde();
+        ThumbnailUI.DisplayStory();
     }
     public static class Properties{
         public struct Prefs {

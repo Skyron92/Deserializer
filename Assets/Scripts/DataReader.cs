@@ -19,7 +19,8 @@ public class DataReader : MonoBehaviour {
 
     public static List<string> StoryFiles => Directory.GetFiles(StoryPath, "*.sty").Select(Path.GetFileName).ToList();
     
-    public void DisplayAllFoundFiles() {
+    public void DisplayAllFoundFiles()
+    {
         foreach (string variableFile in StoryFiles) {
             Button tempButton = Instantiate(ButtonPrefab, panel).GetComponent<Button>();
             TextMeshProUGUI textMeshPro = tempButton.GetComponentInChildren<TextMeshProUGUI>();
@@ -27,10 +28,17 @@ public class DataReader : MonoBehaviour {
             tempButton.onClick.AddListener(delegate {
                 PlayerPrefs.SetString(StoryUI.Properties.Prefs.LoadedStory, textMeshPro.text);
                 LoadPanel.SetActive(false);
+                DestroyAllStory();
             });
         }
     }
-    
+
+    private void DestroyAllStory() {
+        foreach (Transform child in panel) {
+                Destroy(child.gameObject);
+        }
+    }
+
     public static Story LoadStory(string FileTarget) {
         string path = StoryPath + Path.DirectorySeparatorChar + FileTarget;
         foreach (string _path in StoryFiles) {

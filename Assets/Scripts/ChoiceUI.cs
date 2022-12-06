@@ -7,13 +7,10 @@ using UnityEngine.Serialization;
 public class ChoiceUI : MonoBehaviour {
 
     [SerializeField] private TextMeshProUGUI _descriptionInputField;
-
-    /// <summary>
-    /// Load an existing choice
-    /// </summary>
-    /// <param name="choice"></param>
+    
     public void Load(Choice choice) {
         _descriptionInputField.text = choice.Description;
+        
     }
     
 }

@@ -429,8 +429,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StoryName: {fileID: 258971417}
-  TitleInputField: {fileID: 1275482434}
-  DescriptionInputField: {fileID: 1138232875}
+  TitleText: {fileID: 1275482434}
+  DescriptionText: {fileID: 1138232875}
   ChoiceContent: {fileID: 2079493859}
   ChoicePrefab: {fileID: 2595173964479281356, guid: b006c3e0eefa42848bd484a205ff053f, type: 3}
 --- !u!1 &440258981
